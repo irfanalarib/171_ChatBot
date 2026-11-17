@@ -3,49 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Chatbot Nemotron</title>
-
+    <title>Chatbot AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="chat-container">
-
+        <!-- Header -->
         <div class="chat-header">
-            <h1>Chatbot AI</h1>
+            <div class="header-avatar">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="23" y1="18" x2="19" y2="9" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="19" cy="8" r="3" fill="#e2e8f0"/>
+                    <line x1="41" y1="18" x2="45" y2="9" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="45" cy="8" r="3" fill="#e2e8f0"/>
+                    <rect x="10" y="29" width="5" height="10" rx="2.5" fill="#cbd5e1"/>
+                    <rect x="49" y="29" width="5" height="10" rx="2.5" fill="#cbd5e1"/>
+                    <rect x="14" y="17" width="36" height="30" rx="15" fill="#f1f5f9"/>
+                    <rect x="19" y="25" width="26" height="12" rx="6" fill="#0f172a"/>
+                    <circle cx="26" cy="31" r="3" fill="#38bdf8"/>
+                    <circle cx="38" cy="31" r="3" fill="#38bdf8"/>
+                    <path d="M18 54C18 48.5 23.5 45 32 45C40.5 45 46 48.5 46 54" fill="#e2e8f0"/>
+                </svg>
+            </div>
+            <div class="header-info">
+                <h1>Chatbot AI</h1>
+                <span class="status"><span class="status-dot"></span> Online &bull; Siap membantu</span>
+            </div>
         </div>
 
+        <!-- Area Chat -->
         <div id="chat-box" class="chat-box">
-
             <div class="message bot">
-                <div class="message-content">
-                    Halo! Ada yang bisa saya bantu?
+                <div class="bubble">
+                    <div class="avatar">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="23" y1="18" x2="19" y2="9" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="19" cy="8" r="3" fill="#e2e8f0"/>
+                            <line x1="41" y1="18" x2="45" y2="9" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="45" cy="8" r="3" fill="#e2e8f0"/>
+                            <rect x="10" y="29" width="5" height="10" rx="2.5" fill="#cbd5e1"/>
+                            <rect x="49" y="29" width="5" height="10" rx="2.5" fill="#cbd5e1"/>
+                            <rect x="14" y="17" width="36" height="30" rx="15" fill="#e2e8f0"/>
+                            <rect x="19" y="25" width="26" height="12" rx="6" fill="#0f172a"/>
+                            <circle cx="26" cy="31" r="3" fill="#38bdf8"/>
+                            <circle cx="38" cy="31" r="3" fill="#38bdf8"/>
+                            <path d="M18 54C18 48.5 23.5 45 32 45C40.5 45 46 48.5 46 54" fill="#cbd5e1"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">Halo! Ada yang bisa saya bantu?</div>
                 </div>
             </div>
-
         </div>
 
+        <!-- Form Input -->
         <form id="chat-form" class="chat-form">
-
             <input
                 type="text"
                 id="user-input"
-                placeholder="Ketik pesan..."
+                placeholder="Ketik pesan Anda di sini..."
                 autocomplete="off"
                 required
             >
-
-            <button type="submit">
-                Kirim
+            <button type="submit" id="send-btn" aria-label="Kirim pesan">
+                <span>Kirim</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
             </button>
-
         </form>
-
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
