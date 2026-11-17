@@ -95,7 +95,11 @@ app.post("/api/chat", async (req, res) => {
                     jsonData.choices?.[0]?.delta?.content;
 
                 if (typeof content === "string" && content.length > 0) {
-
+                    if (content) {
+                        res.write(
+                                `data: ${JSON.stringify(content)}\n\n`
+                        );
+                    }
                 }
 
                 if (jsonData.error) {
