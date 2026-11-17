@@ -69,3 +69,44 @@ app.post("/api/chat", async (req, res) => {
         res.setHeader("Connection", "keep-alive");
 
         res.flushHeaders();
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        let buffer = "";
+
+        function processLine(line) {
+            const trimmedLine = line.trim();
+
+            if (!trimmedLine.startsWith("data:")) {
+                return;
+            }
+
+            const data = trimmedLine.slice(5).trim();
+
+            if (data === "[DONE]") {
+                return;
+            }
+
+            try {
+                const jsonData = JSON.parse(data);
+
+                const content =
+                    jsonData.choices?.[0]?.delta?.content;
+
+                if (typeof content === "string" && content.length > 0) {
+
+                }
+
+                if (jsonData.error) {
+                    console.error("Stream API Error:", jsonData.error);
+                }
+
+            } catch (error) {
+                console.error("Gagal parsing SSE:", error);
+            }
+        }
+
+    } catch (error) {
+    }
+});
